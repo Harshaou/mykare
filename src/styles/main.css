@@ -15,13 +15,17 @@ body {
   background-color: #cffafe !important;
 }
 
-.ant-custom-input,
-.ant-picker {
+.ant-custom-input {
   height: 40px !important;
   border-radius: 5px !important;
   width: 100%;
 }
 
-a {
-  color: unset !important;
+.ant-btn {
+  height: 36px !important;
+  border-radius: 6px !important;
 }
+
+/* a {
+  color: unset !important;
+} */

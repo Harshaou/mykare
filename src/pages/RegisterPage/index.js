@@ -1,31 +1,34 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Form, Input, Divider, Button, notification } from "antd";
+import { Form, Input, Button, message } from "antd";
 import { Link } from "react-router-dom";
 import { Template } from "../../templates";
 
 const Resgister = () => {
-  const router = useNavigate();
-
-  const [checkEmailisValid, setCheckEmailisValid] = useState();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    if (checkEmailisValid === "Valid") {
+    let users = localStorage.getItem("users")
+      ? JSON.parse(localStorage.getItem("users"))
+      : [];
+
+    const emailExist = users.some((item) => item.email === data.email);
+    if (emailExist) {
+      showMessage("Email already in use");
+    } else {
+      localStorage.setItem("users", JSON.stringify([...users, data]));
+      navigate("/login");
     }
   };
 
-  const checkEmailVaild = (value) => {
-    let l = value.replace(/\s+/g, ""),
-      setCheckEmailisValid;
+  const showMessage = (msg) => {
+    message.error(msg);
   };
-
-  console.log("haha", checkEmailisValid);
 
   return (
     <Template>
       <div className="w-full mx-auto">
         <div className=" flex flex-col items-center justify-center py-12">
-          <div className="bg-white rounded-lg w-full sm:w-11/12 md:w-7/12 lg:w-4/12 px-12 p-16 pt-6">
+          <div className="bg-white rounded-lg w-full sm:w-11/12 md:w-7/12 lg:w-4/12 p-10  pt-6">
             <div className="flex flex-col gap-3 justify-center px-4 w-full ">
               <div className="flex gap-3 items-center justify-center mb-5">
                 <h2 className="mb-0 md:text-3xl ">Create a Account</h2>
@@ -33,6 +36,7 @@ const Resgister = () => {
 
               <Form className="" name="validate_other" onFinish={onSubmit}>
                 <Form.Item
+                  className="!m-0 !mb-3"
                   name="name"
                   rules={[
                     {
@@ -44,6 +48,7 @@ const Resgister = () => {
                   <Input placeholder="Name" className="ant-custom-input" />
                 </Form.Item>
                 <Form.Item
+                  className="!m-0 !mb-3"
                   name="email"
                   rules={[
                     {
@@ -53,18 +58,14 @@ const Resgister = () => {
                   ]}
                 >
                   <Input
-                    onChange={(e) => checkEmailVaild(e.target.value)}
+                    type="email"
                     placeholder="Email"
                     className="ant-custom-input"
                   />
                 </Form.Item>
-                {checkEmailisValid === "Already Exists" && (
-                  <p style={{ color: "red", marginTop: -10, marginBottom: 10 }}>
-                    Email is already in use
-                  </p>
-                )}
 
                 <Form.Item
+                  className="!m-0 !mb-4"
                   name="password"
                   rules={[
                     { required: true, message: "Please input your password!" },
@@ -75,8 +76,8 @@ const Resgister = () => {
                     className="ant-custom-input"
                   />
                 </Form.Item>
-                <Form.Item className="flex w-full mt-2 ">
-                  <Button type="primary" htmlType="submit">
+                <Form.Item className="flex w-full  ">
+                  <Button className="w-full" type="primary" htmlType="submit">
                     Signup
                   </Button>
                 </Form.Item>

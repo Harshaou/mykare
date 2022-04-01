@@ -1,52 +1,24 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "antd";
 import { Link } from "react-router-dom";
 import { CgMenuLeftAlt, CgClose } from "react-icons/cg";
-import { AiFillBell, AiFillMessage } from "react-icons/ai";
-import { FiMenu } from "react-icons/fi";
-import { FaUserAlt } from "react-icons/fa";
-import DropDown from "./DropDown";
-import { Menu, Dropdown, Space, Button } from "antd";
-import { UserOutlined, LogoutOutlined, DownOutlined } from "@ant-design/icons";
-
-const pages = ["home", "peers", "groups"];
 
 const Nav = () => {
-  const [scroll, setScroll] = useState(false);
-  const [enabled, setEnabled] = useState(false);
+  const navigate = useNavigate();
   const [sidebar, setSidebar] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
 
-  const isAuthenticated = true;
-
-  const handleScroll = () => {
-    if (window.pageYOffset > 150) {
-      setScroll(true);
-    } else {
-      setScroll(false);
-    }
+  const handleLogout = () => {
+    localStorage.removeItem("auth");
+    navigate("/login");
   };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <header className="sticky top-0 z-50  px-6 bg-gray-300">
-      <nav
-        // style={
-        //   scroll ? { backgroundColor: "white" } : { backgroundColor: "#f2f2f2" }
-        // }
-        className="flex justify-center lg:justify-between  px-16 py-4 backdrop-filter backdrop-blur-lg "
-      >
+      <nav className="flex justify-center lg:justify-between  px-16 py-4 backdrop-filter backdrop-blur-lg ">
         <button
           type="button"
           className="absolute text-primary outline-0 lg:hidden"
-          style={{
-            transform: "translateY(-50%)",
-            top: "50%",
-            left: "10px",
-          }}
         >
           <CgMenuLeftAlt size={24} onClick={() => setSidebar(!sidebar)} />
         </button>
@@ -117,11 +89,9 @@ const Nav = () => {
           <div className="flex ">
             <div className="flex items-center gap-3">
               <div className=" flex items-center gap-5 pl-4 ">
-                {isAuthenticated && (
-                  <>
-                    <Button>Logout</Button>
-                  </>
-                )}
+                <>
+                  <Button onClick={handleLogout}>Logout</Button>
+                </>
               </div>
             </div>
           </div>
