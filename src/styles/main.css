@@ -1,0 +1,27 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none !important;
+}
+
+body {
+  background-color: #cffafe !important;
+}
+
+.ant-custom-input,
+.ant-picker {
+  height: 40px !important;
+  border-radius: 5px !important;
+  width: 100%;
+}
+
+a {
+  color: unset !important;
+}
