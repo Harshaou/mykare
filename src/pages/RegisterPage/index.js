@@ -11,9 +11,11 @@ const Resgister = () => {
       ? JSON.parse(localStorage.getItem("users"))
       : [];
 
-    const emailExist = users.some((item) => item.email === data.email);
-    if (emailExist) {
-      showMessage("Email already in use");
+    const usernameExist = users.some(
+      (item) => item.username.toLowerCase() === data.username.toLowerCase()
+    );
+    if (usernameExist) {
+      showMessage("username already in use");
     } else {
       localStorage.setItem("users", JSON.stringify([...users, data]));
       navigate("/login");
@@ -49,7 +51,7 @@ const Resgister = () => {
                 </Form.Item>
                 <Form.Item
                   className="!m-0 !mb-3"
-                  name="email"
+                  name="username"
                   rules={[
                     {
                       required: true,
@@ -57,13 +59,8 @@ const Resgister = () => {
                     },
                   ]}
                 >
-                  <Input
-                    type="email"
-                    placeholder="Email"
-                    className="ant-custom-input"
-                  />
+                  <Input placeholder="Username" className="ant-custom-input" />
                 </Form.Item>
-
                 <Form.Item
                   className="!m-0 !mb-4"
                   name="password"

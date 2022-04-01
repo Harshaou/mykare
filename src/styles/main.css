@@ -11,10 +11,6 @@ a:active {
   text-decoration: none !important;
 }
 
-body {
-  background-color: #cffafe !important;
-}
-
 .ant-custom-input {
   height: 40px !important;
   border-radius: 5px !important;

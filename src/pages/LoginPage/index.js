@@ -11,13 +11,18 @@ const Resgister = () => {
       ? JSON.parse(localStorage.getItem("users"))
       : [];
     const authenticate = users.some(
-      (item) => item.email === data.email && item.password === data.password
+      (item) =>
+        item.username.toLowerCase() === data.username.toLowerCase() &&
+        item.password === data.password
     );
     if (authenticate) {
-      localStorage.setItem("auth", JSON.stringify({ auth: true }));
+      localStorage.setItem(
+        "auth",
+        JSON.stringify({ auth: true, username: data.username })
+      );
       navigate("/");
     } else {
-      showMessage("Email or password is incorrect");
+      showMessage("username or password is incorrect");
     }
   };
 
@@ -38,7 +43,7 @@ const Resgister = () => {
               <Form className="" name="validate_other" onFinish={onSubmit}>
                 <Form.Item
                   className="!m-0 !mb-3"
-                  name="email"
+                  name="username"
                   rules={[
                     {
                       required: true,
@@ -46,11 +51,7 @@ const Resgister = () => {
                     },
                   ]}
                 >
-                  <Input
-                    type="email"
-                    placeholder="Email"
-                    className="ant-custom-input"
-                  />
+                  <Input placeholder="username" className="ant-custom-input" />
                 </Form.Item>
 
                 <Form.Item
