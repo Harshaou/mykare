@@ -79,9 +79,8 @@ const Resgister = () => {
                   </Button>
                 </Form.Item>
                 <div className="w-full px-3 pt-2">
-                  <div className="flex justify-between">
+                  <div className="flex justify-center">
                     <Link to="/login">Alreay have an account?</Link>
-                    <Link to="/reset">Forgot password</Link>
                   </div>
                 </div>
               </Form>

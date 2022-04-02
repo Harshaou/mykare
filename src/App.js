@@ -1,10 +1,22 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import RouterSetup from "./router/index";
-import Loader from "./components/Loader";
 
 const App = () => {
+  let users = localStorage.getItem("users")
+    ? JSON.parse(localStorage.getItem("users"))
+    : [];
+
+  let admin = users.find((item) => item.username === "admin");
+
+  if (!admin) {
+    localStorage.setItem(
+      "users",
+      JSON.stringify([
+        ...users,
+        { name: "Admin manager", username: "admin", password: "admin" },
+      ])
+    );
+  }
+
   return <RouterSetup />;
 };
 
