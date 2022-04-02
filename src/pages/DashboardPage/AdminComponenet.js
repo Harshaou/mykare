@@ -1,9 +1,10 @@
-import React from "react";
-import { Avatar, Empty } from "antd";
-import { FaUsers } from "react-icons/fa";
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { Avatar, Empty } from 'antd';
+import { FaUsers } from 'react-icons/fa';
 
 const AdminComponenet = ({ state }) => {
-  const colorList = ["#f56a00", "#7265e6", "#ffbf00", "#00a2ae"];
+  const colorList = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'];
 
   return (
     <div className="flex flex-col mx-auto sm:w-8/12 md:w-5/12 p-4 py-8  overflow-y-auto">
@@ -18,7 +19,7 @@ const AdminComponenet = ({ state }) => {
           <p className="mb-0">Total users {state.users.length}</p>
         </div>
       )}
-      {state.users.map((item, index) => (
+      {state.users.map((item) => (
         <>
           <div
             key={item.username}
@@ -26,7 +27,7 @@ const AdminComponenet = ({ state }) => {
           >
             <Avatar
               style={{
-                verticalAlign: "middle",
+                verticalAlign: 'middle',
                 backgroundColor:
                   colorList[Math.floor(Math.random() * colorList.length)],
               }}

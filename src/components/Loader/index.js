@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';

@@ -1,9 +1,3 @@
-/* eslint-disable*/
-/* This example requires Tailwind CSS v2.0+ */
-
-// import Cta from '../../Components/Common/cta';
-// import Cta from '../../Components/Common/GetStarted';
-
 const Footer = () => (
   <footer className="bg-white w-full p-8">
     <div className="max-w-screen-xl mx-auto bg-white rounded-md round-md p-2">

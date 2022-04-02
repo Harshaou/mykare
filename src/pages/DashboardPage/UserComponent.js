@@ -1,4 +1,5 @@
-import { MdWavingHand } from "react-icons/md";
+/* eslint-disable react/prop-types */
+import { MdWavingHand } from 'react-icons/md';
 
 const UserComponent = ({ state }) => {
   return (

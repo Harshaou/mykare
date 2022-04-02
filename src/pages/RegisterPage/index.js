@@ -1,24 +1,24 @@
-import { useNavigate } from "react-router-dom";
-import { Form, Input, Button, message } from "antd";
-import { Link } from "react-router-dom";
-import { Template } from "../../templates";
+import { useNavigate } from 'react-router-dom';
+import { Form, Input, Button, message } from 'antd';
+import { Link } from 'react-router-dom';
+import { Template } from '../../templates';
 
 const Resgister = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    let users = localStorage.getItem("users")
-      ? JSON.parse(localStorage.getItem("users"))
+    let users = localStorage.getItem('users')
+      ? JSON.parse(localStorage.getItem('users'))
       : [];
 
     const usernameExist = users.some(
       (item) => item.username.toLowerCase() === data.username.toLowerCase()
     );
     if (usernameExist) {
-      showMessage("username already in use");
+      showMessage('username already in use');
     } else {
-      localStorage.setItem("users", JSON.stringify([...users, data]));
-      navigate("/login");
+      localStorage.setItem('users', JSON.stringify([...users, data]));
+      navigate('/login');
     }
   };
 
@@ -42,7 +42,7 @@ const Resgister = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Please input your username!",
+                      message: 'Please input your username!',
                     },
                   ]}
                 >
@@ -54,7 +54,7 @@ const Resgister = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Please input your username!",
+                      message: 'Please input your username!',
                     },
                   ]}
                 >
@@ -64,7 +64,7 @@ const Resgister = () => {
                   className="!m-0 !mb-4"
                   name="password"
                   rules={[
-                    { required: true, message: "Please input your password!" },
+                    { required: true, message: 'Please input your password!' },
                   ]}
                 >
                   <Input.Password

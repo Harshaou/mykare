@@ -1,14 +1,14 @@
-import { useNavigate } from "react-router-dom";
-import { Form, Input, Button, message } from "antd";
-import { Link } from "react-router-dom";
-import { Template } from "../../templates";
+import { useNavigate } from 'react-router-dom';
+import { Form, Input, Button, message } from 'antd';
+import { Link } from 'react-router-dom';
+import { Template } from '../../templates';
 
 const Resgister = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    let users = localStorage.getItem("users")
-      ? JSON.parse(localStorage.getItem("users"))
+    let users = localStorage.getItem('users')
+      ? JSON.parse(localStorage.getItem('users'))
       : [];
     const authenticate = users.some(
       (item) =>
@@ -17,12 +17,12 @@ const Resgister = () => {
     );
     if (authenticate) {
       localStorage.setItem(
-        "auth",
+        'auth',
         JSON.stringify({ auth: true, username: data.username })
       );
-      navigate("/");
+      navigate('/');
     } else {
-      showMessage("username or password is incorrect");
+      showMessage('username or password is incorrect');
     }
   };
 
@@ -46,7 +46,7 @@ const Resgister = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Please input your username!",
+                      message: 'Please input your username!',
                     },
                   ]}
                 >
@@ -57,7 +57,7 @@ const Resgister = () => {
                   className="!m-0 !mb-4"
                   name="password"
                   rules={[
-                    { required: true, message: "Please input your password!" },
+                    { required: true, message: 'Please input your password!' },
                   ]}
                 >
                   <Input.Password

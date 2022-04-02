@@ -1,11 +1,9 @@
-/* eslint-disable linebreak-style */
-import React from "react";
-import HeaderMenu from "./Header";
+/* eslint-disable react/prop-types */
+import React from 'react';
+import HeaderMenu from './Header';
 
 const Template = ({ children, layout }) => {
   const auth = false;
-  // console.log("check", auth.isAuthenticated);
-
   return (
     <div className="w-full text-base ">
       <div className="mx-auto">

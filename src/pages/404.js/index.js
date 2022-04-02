@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 const index = () => {
   return (
     <div className="flex items-center justify-center w-screen h-screen">

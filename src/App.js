@@ -1,18 +1,18 @@
-import RouterSetup from "./router/index";
+import RouterSetup from './router/index';
 
 const App = () => {
-  let users = localStorage.getItem("users")
-    ? JSON.parse(localStorage.getItem("users"))
+  let users = localStorage.getItem('users')
+    ? JSON.parse(localStorage.getItem('users'))
     : [];
 
-  let admin = users.find((item) => item.username === "admin");
+  let admin = users.find((item) => item.username === 'admin');
 
   if (!admin) {
     localStorage.setItem(
-      "users",
+      'users',
       JSON.stringify([
         ...users,
-        { name: "Admin manager", username: "admin", password: "admin" },
+        { name: 'Admin manager', username: 'admin', password: 'admin' },
       ])
     );
   }
