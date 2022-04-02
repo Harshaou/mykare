@@ -28,14 +28,13 @@ const Resgister = () => {
 
   return (
     <Template>
-      <div className="w-full mx-auto">
-        <div className=" flex flex-col items-center justify-center py-12">
-          <div className="bg-white rounded-lg w-full sm:w-11/12 md:w-7/12 lg:w-4/12 p-10  pt-6">
-            <div className="flex flex-col gap-3 justify-center px-4 w-full ">
+      <div className="w-full h-screen mx-auto">
+        <div className="flex h-full flex-col items-center justify-center py-12">
+          <div className="bg-white -mt-10 rounded-lg w-11/12 sm:w-7/12 md:w-6/12 lg:w-4/12 p-10 pt-6">
+            <div className="md:px-4">
               <div className="flex gap-3 items-center justify-center mb-5">
                 <h2 className="mb-0 md:text-3xl ">Create a Account</h2>
               </div>
-
               <Form className="" name="validate_other" onFinish={onSubmit}>
                 <Form.Item
                   className="!m-0 !mb-3"
