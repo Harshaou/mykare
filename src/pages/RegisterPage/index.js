@@ -30,7 +30,7 @@ const Resgister = () => {
     <Template>
       <div className="w-full h-screen mx-auto">
         <div className="flex h-full flex-col items-center justify-center py-12">
-          <div className="bg-white -mt-10 rounded-lg w-11/12 sm:w-7/12 md:w-6/12 lg:w-4/12 p-10 pt-6">
+          <div className="bg-white -mt-16 rounded-lg w-11/12 sm:w-7/12 md:w-6/12 lg:w-4/12 p-10 pt-6">
             <div className="md:px-4">
               <div className="flex gap-3 items-center justify-center mb-5">
                 <h2 className="mb-0 md:text-3xl ">Create a Account</h2>
